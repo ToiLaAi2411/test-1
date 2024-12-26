@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Hello World</title>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  <!-- Don't use this in production: -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <style>
+    <style>
     .custome {
       display: inline-block;
       padding: 20px;
@@ -20,30 +21,29 @@
       user-select: none;
     }
   </style>
-</head>
+  </head>
 
+  <body>
+    <div id="root"></div>
 
-<body>
-  <div id="root"></div>
+    <div id="balo">
+      <a class="custome">clickME</a>
+    </div>
 
-  <div id="balo">
-    <a  class="custome">clickME</a>
-  </div>
-
-  <script>
-    function testtng(){
+    <script>
+    function testtng() {
       console.log("abc");
     }
   </script>
 
-  <!-- <div>
+    <!-- <div>
     <ul>
       <li id="cc"></li>
       <li id="cc"></li>
     </ul>
    </div> -->
 
-  <script type="text/babel">
+    <script type="text/babel">
     // function Header(){
     //   let sample = <div className = "xx">Header</div>;
     //   return sample;
@@ -102,7 +102,7 @@
     }
 
 
-    function GetTitle( { title,onClick,cou } ) {
+    function GetTitle({ title, onClick, cou }) {
       console.log(onClick);
       return (
         <h1 onClick={() => onClick(title)}>{cou.name}</h1>
@@ -110,12 +110,12 @@
 
     }
 
-  const handleClick =  function (content) {
+    const handleClick = function (content) {
       console.log(content);
     }
 
-    const Y= {
-      GetNam: function(){
+    const Y = {
+      GetNam: function () {
         return <h2>HEloo</h2>
       }
     }
@@ -146,13 +146,13 @@
     root.render(app);
 
 
-const form ={
-  Input() {
-    return <div></div>
-  }
-}
+    const form = {
+      Input() {
+        return <div></div>
+      }
+    }
   </script>
 
-</body>
+  </body>
 
 </html>
