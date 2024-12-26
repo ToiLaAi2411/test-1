@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<style>
+    .custome {
+      display: inline-block;
+      padding: 20px;
+      border: none;
+      background-color: greenyellow;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+    }
+  </style>
+<body>
+<div id="root">
+   
+</div>
+
+
+
+    <script type="text/babel">
+    
+       const course = [
+        {
+            name: 'Java'
+        },
+        {
+            name: "PHP"
+        },
+        {
+            name: 'Javascript'
+        }
+       ];
+
+       function Btn({ title, href, onClick}){
+          let Compo = "button";
+          const props = {};
+
+          if(href){
+            Compo = "a";
+            props.href = href;
+            props.target = "_blank";
+          }
+
+          if(onClick){
+            props.onClick = () => onClick();
+          }
+
+          console.log({...props});
+          console.log(  <Compo {...props}>{title}</Compo>);
+
+          return (
+            <Compo {...props}>{title}</Compo>
+          )
+       }
+
+
+       function CustomeBTN({ children, href, onClick}) {
+          let TypeOf  = 'button';
+          let prop = {
+            className : "custome"
+          }
+
+          if(href) {
+            TypeOf = 'a';
+            prop.href = href;
+            prop.target = "_blank";
+          }
+          
+          if(onClick) {
+            prop.onClick = onClick
+          }
+
+          return (
+            <TypeOf { ...prop }>{children}</TypeOf>
+          );
+
+       }
+
+       function Ver({ label, ...rest }) {
+          return (
+            <div>
+                <label htmlFor= "">{label}</label>
+                <input {...rest}/>
+            </div>
+          );
+       }
+      
+
+      
+    
+       function App(){
+        function notifyClick(){
+            console.log(Math.random());
+        } 
+
+        return (
+            <div className = "wrapper">
+                <h1>Test</h1>
+                <CustomeBTN 
+                 href ="https://www.youtube.com/watch?v=YtLx_sfJquA&list=RDMMYtLx_sfJquA&start_radio=1" 
+                 onClick = {notifyClick}>
+                 CaiLLon
+                </CustomeBTN>
+                <Ver
+                  label = "This is rest"
+                  type = "radio"
+                  placeholder = "enter somthing" 
+                />
+
+        
+            </div>
+        );
+       }
+
+       const idEle = document.getElementById('root');
+       const root = ReactDOM.createRoot(idEle);
+       root.render(<App />);
+       
+       
+
+    </script>
+    
+</body>
+</html>
