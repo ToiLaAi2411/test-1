@@ -1,21 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<body>
-  <div>
-    <div>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+    .custome {
+      display: inline-block;
+      padding: 20px;
+      border: none;
+      background-color: greenyellow;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div id="root">
       <div>
-
+        <div>
+          
+        </div>
       </div>
     </div>
-  </div>
 
-</body>
+    <div id="balo">
+      <a class="custome">clickME</a>
+    </div>
+
+    <script>
+    function testtng() {
+      console.log("abc");
+    }
+  </script>
+
+    <!-- <div>
+    <ul>
+      <li id="cc"></li>
+      <li id="cc"></li>
+    </ul>
+   </div> -->
+
+    <script type="text/babel">
+    // function Header(){
+    //   let sample = <div className = "xx">Header</div>;
+    //   return sample;
+    // }
+
+    // let Footer = (props) => {
+    //   let ty = 3;
+    //   const sample = <div className = "xx-2">
+    //                     <h3 className="footer-element">{props.titleH3}</h3>
+    //                  </div>;
+
+    //                  return sample;
+
+    // };
+
+    // // console.log("1",<Footer 
+    // //          titleH3 ="This is prop for H3"
+    // //     />);
+
+    // console.log("2222");
+
+    //     Footer({h:"22"});  
+
+    const courses = [
+      {
+        id: 1,
+        name: "JavaScript",
+        point: 500
+      },
+      {
+        id: 2,
+        name: "HTML-CSS",
+        point: 300
+      },
+      {
+        id: 3,
+        name: "JavaScript-Pro",
+        point: 700
+      }
+    ];
+
+    let GetData = (props) => (
+      <div>
+        <h2>{props.name}</h2>
+        <p>{props.id}</p>
+        <p>{props.point}</p>
+      </div>
+    );
+
+    function GetRandom() {
+      return (
+        <div>
+          <button onClick={() => console.log(Math.random())}>click me</button>
+        </div>
+      );
+    }
+
+
+    function GetTitle({ title, onClick, cou }) {
+      console.log(onClick);
+      return (
+        <h1 onClick={() => onClick(title)}>{cou.name}</h1>
+      );
+
+    }
+
+    const handleClick = function (content) {
+      console.log(content);
+    }
+
+    const Y = {
+      GetNam: function () {
+        return <h2>HEloo</h2>
+      }
+    }
+
+
+    const app = (
+      <div className="wrapper">
+        <GetTitle
+          title="Nhan Vao Day"
+          onClick={handleClick}
+          cou={courses[1]}
+        />
+        {courses.map((course) => (
+          <GetData
+            key={course.id}
+            id={course.id}
+            name={course.name}
+            point={course.point}
+          />
+        ))}
+
+        <GetRandom />
+        <Y.GetNam />
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(app);
+
+
+    const form = {
+      Input() {
+        return <div></div>
+      }
+    }
+  </script>
+
+  </body>
 
 </html>
